@@ -30,9 +30,31 @@ var assert = require("assert")
 // Output numArray: []
 // Explanation: Empty array...
 
+// Merge two arrays into one array, following [a, b, c] and [d, e, f] => [a, d, b, e, c, f]
+const mergeArray = (array1, array2) => {
+    var startingArray = array1;
+    var secondArray = array2;
+    if (array1.length < array2.length) {
+        startingArray = array2;
+        secondArray = array1;
+    }
+
+    var mergedArray = [];
+    for (let i = 0; i < startingArray.length; i++) {
+        mergedArray.push(startingArray[i]);
+        
+        // probs don't need this since undefined = undefined but just in case
+        if (i < secondArray.length) {
+            mergedArray.push(secondArray[i]);        
+        }
+    }
+    return mergedArray;
+}
+
 const altNumbers = (numArray) => {
-    // TODO: COMPLETE THIS FUNCTION
-    return [];
+    var positiveNumbers = numArray.filter(num => num >= 0);
+    var negativeNumbers = numArray.filter(num => num < 0);
+    return mergeArray(positiveNumbers, negativeNumbers);
 }
 
 module.exports = { altNumbers } // Do not modify this line

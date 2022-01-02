@@ -33,8 +33,8 @@ def is_unlocked(courses_list, target_course):
     You can assume all courses are worth 6 units of credit
     """
     
-    # TODO: COMPLETE THIS FUNCTION!!!
     
+
     return True
 
 
